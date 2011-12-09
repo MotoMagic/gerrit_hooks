@@ -1,0 +1,20 @@
+./patchset-created --change "change id" --change-url "http://example/" --project "project name" --branch "branch" --uploader "Joe Blow (uploader@example.com)" --commit "sha1" --patchset "psid"
+./comment-added --change "change id" --change-url "http://example/" --project "project name" --branch "branch" --author "comment author" --commit "commit" --comment "comment"
+# --"approval category id" "score" --"approval category id" "score"
+./comment-added --change I410e2ea3118f120bfcc00a063ac0a89e345cfa85 --change-url http://review.motomagic.org/1 --project android_local --branch ics --author "Austen Dicken (cvpcs@example.com)" --commit fd63c486635181bd9a845cbe86e5560156523518 --comment "review again! :D" --CRVW -2
+./comment-added --change I410e2ea3118f120bfcc00a063ac0a89e345cfa85 --change-url http://review.motomagic.org/1 --project android_local --branch ics --author "Austen Dicken (cvpcs@example.com)" --commit fd63c486635181bd9a845cbe86e5560156523518 --comment "review again! :D" --CRVW -1
+./comment-added --change I410e2ea3118f120bfcc00a063ac0a89e345cfa85 --change-url http://review.motomagic.org/1 --project android_local --branch ics --author "Austen Dicken (cvpcs@example.com)" --commit fd63c486635181bd9a845cbe86e5560156523518 --comment "review again! :D" --CRVW 0
+./comment-added --change I410e2ea3118f120bfcc00a063ac0a89e345cfa85 --change-url http://review.motomagic.org/1 --project android_local --branch ics --author "Austen Dicken (cvpcs@example.com)" --commit fd63c486635181bd9a845cbe86e5560156523518 --comment "review again! :D" --CRVW 1
+./comment-added --change I410e2ea3118f120bfcc00a063ac0a89e345cfa85 --change-url http://review.motomagic.org/1 --project android_local --branch ics --author "Austen Dicken (cvpcs@example.com)" --commit fd63c486635181bd9a845cbe86e5560156523518 --comment "review again! :D" --CRVW 2
+./comment-added --change I410e2ea3118f120bfcc00a063ac0a89e345cfa85 --change-url http://review.motomagic.org/1 --project android_local --branch ics --author "Scott Anderson (camel@example.org)" --commit fd63c486635181bd9a845cbe86e5560156523518 --comment "test" --VRIF -1
+./comment-added --change I410e2ea3118f120bfcc00a063ac0a89e345cfa85 --change-url http://review.motomagic.org/1 --project android_local --branch ics --author "Scott Anderson (camel@example.org)" --commit fd63c486635181bd9a845cbe86e5560156523518 --comment "test" --VRIF 0
+./comment-added --change I410e2ea3118f120bfcc00a063ac0a89e345cfa85 --change-url http://review.motomagic.org/1 --project android_local --branch ics --author "Scott Anderson (camel@example.org)" --commit fd63c486635181bd9a845cbe86e5560156523518 --comment "test" --VRIF 1
+./change-merged --change "change id" --change-url "http://example/" --project "project name" --branch "branch" --submitter "Scott Anderson (abc@def.gh)" --commit "sha1"
+./change-abandoned --change "change id" --change-url "http://example/" --project "project name" --branch "branch" --abandoner "abandoner" --reason "reason"
+./change-restored --change "change id" --change-url "http://example/" --project "project name" --branch "branch" --restorer "restorer" --reason "reason"
+./ref-updated --oldrev "0000000" --newrev "1234567" --refname "ics" --project "android_local" --submitter "Scott Anderson (abc@def.gh)"
+./ref-updated --oldrev "1234567" --newrev "7654321" --refname "ics" --project "android_local" --submitter "Scott Anderson (abc@def.gh)"
+./ref-updated --oldrev "7654321" --newrev "0000000" --refname "ics" --project "android_local" --submitter "Scott Anderson (abc@def.gh)"
+./ref-updated --oldrev 0000000000000000000000000000000000000000 --newrev d0624bc5a68a9dd80d07d9b454cdcbf3ffbc01fe --refname ics --project android_packages_apps_Usb --submitter "Scott Anderson (camel@example.org)"
+./ref-updated --oldrev "7654321" --newrev "0000000" --refname "ics" --project "android_local" --submitter "Emilio López (turl@example.org)"
+
