@@ -12,7 +12,6 @@ CMD="$(basename $0)"
 	UNBOLD="\e[0m"
 	RESET="\e[0m"
 } || {
-	echo "$CMD $@" >> /home/gerrit2/motomagic/hooks/reallog
 	BOLD="\002"
 	UNBOLD="\002"
 	RESET="\003"
@@ -51,11 +50,13 @@ removeemail() {
 	echo $OUT
 }
 
+COMMAND="$CMD"
 until [ -z "$1" ]; do
 	OPTION="$1"
 	shift
 	ARG="$1"
 	shift
+	COMMAND="${COMMAND} ${OPTION} \"${ARG//\"/\\\"}\""
 	case "$OPTION" in
 		"--branch")	BRANCH="$ARG";;
 		"--change")	CHANGE="$ARG";;
@@ -78,6 +79,10 @@ until [ -z "$1" ]; do
 		*)	append "Unknown $OPTION $ARG";;
 	esac
 done
+
+[ $TEST == 1 ] || {
+	echo "${COMMAND}" >> /home/gerrit2/motomagic/hooks/reallog
+}
 
 append "[${BOLD}"
 append "${GREEN}${PROJECT}${RESET}"
