@@ -89,13 +89,16 @@ append "${GREEN}${PROJECT}${RESET}"
 [ "${BRANCH}" == "" ] || append ":${RED}${BRANCH}${RESET}"
 [ "${REFNAME}" == "" ] || append ":${RED}${REFNAME}${RESET}"
 append "${UNBOLD}] "
+
+[ "${CHANGE_URL}" == "" ] || append "${CHANGE_URL} "
+
 case "$CMD" in
 	"patchset-created")
-		append "${UPLOADER} created ${CHANGE_URL}"
+		append "${UPLOADER} created patchset ${PATCHSET} at ${COMMIT}"
 		;;
 	"comment-added")
 		# not showing ${COMMIT} cause it's useless
-		append "${AUTHOR} commented on ${CHANGE_URL}"
+		append "${AUTHOR} commented"
 		[ "${VRIF}" == "" ] || {
 			case "$VRIF" in
 				-1) append " ${RED}${BOLD}Fails${UNBOLD}${RESET}";;
@@ -117,14 +120,13 @@ case "$CMD" in
 		append " ${COMMENT}"
 		;;
 	"change-merged")
-		append "${SUBMITTER} merged ${COMMIT}"
-		append " ${CHANGE_URL}"
+		append "${SUBMITTER} merged ${CHANGE}"
 		;;
 	"change-abandoned")
-		append "${ABANDONER} abandoned ${CHANGE_URL} ${REASON}"
+		append "${ABANDONER} abandoned ${CHANGE} ${REASON}"
 		;;
 	"change-restored")
-		append "${RESTORER} restored ${CHANGE_URL} ${REASON}"
+		append "${RESTORER} restored ${CHANGE} ${REASON}"
 		;;
 	"ref-updated")
 		append "${SUBMITTER}"
